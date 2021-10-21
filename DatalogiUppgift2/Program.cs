@@ -18,11 +18,8 @@ namespace DatalogiUppgift2
 
         static void Main(string[] args)
         {
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
             AddTextFromFilesToLists();
             Menu();
-            watch.Stop();
         }
 
         public static void Menu()
@@ -35,7 +32,7 @@ namespace DatalogiUppgift2
                     Console.Clear();
                     Console.WriteLine("[MENU]");
                     Console.WriteLine("1. Search for a word in the lists");
-                    Console.WriteLine("2. Print all the search results/history (the tree)");
+                    Console.WriteLine("2. Print all the search results");
                     Console.WriteLine("3. Print the first number of words from the lists when sorted");
                     Console.WriteLine("4. Print all commandos made by user");
                     Console.Write("> ");
@@ -59,8 +56,8 @@ namespace DatalogiUppgift2
                             PressEnterToMenu();
                             break;
                         case 4:
-                            listOfCommands.Add("Printed all commandos made by user");
-                            PrintTheFirstWordsFromList();
+                            listOfCommands.Add("Printed all commandos made by user");                       
+                            PrintListOfCommands(listOfCommands);
                             PressEnterToMenu();
                             break;
                     }
@@ -68,7 +65,10 @@ namespace DatalogiUppgift2
             }
             catch
             {
+                Console.WriteLine();
                 Console.WriteLine("Wrong input, please try again!");
+                PressEnterToMenu();
+                Menu();
             }
         }
 
@@ -92,12 +92,21 @@ namespace DatalogiUppgift2
             Console.Write("> ");
             int input = Convert.ToInt32(Console.ReadLine());
 
-            List<string> newSortedList = doc1.OrderBy(x => x).ToList();
-            PrintWordsFromList(1, input, newSortedList);
-            newSortedList = doc2.OrderBy(x => x).ToList();
-            PrintWordsFromList(2, input, newSortedList);
-            newSortedList = doc3.OrderBy(x => x).ToList();
-            PrintWordsFromList(3, input, newSortedList);
+            PrintWordsFromList(1, input, doc1.OrderBy(x => x).ToList());
+            PrintWordsFromList(2, input, doc2.OrderBy(x => x).ToList());
+            PrintWordsFromList(3, input, doc3.OrderBy(x => x).ToList());
+        }
+
+        public static void PrintListOfCommands(List<string> list)
+        {
+            Console.WriteLine();
+            Console.WriteLine("All commands performed so far");
+            int i = 1;
+            foreach (var item in list)
+            {
+                Console.WriteLine(i + ". " + item);
+                i++;
+            }
         }
 
         public static void PrintWordsFromList(int docNum, int input, List<string> list)
@@ -115,7 +124,7 @@ namespace DatalogiUppgift2
                 }
                 else
                 {
-                    while (word != nextWord)
+                    while (word.ToLower() != nextWord.ToLower())
                     {
                         Console.WriteLine(word);
                         nextWord = word;
@@ -132,7 +141,6 @@ namespace DatalogiUppgift2
             Console.Write(">");
             var wordFromUser = Console.ReadLine();
 
-            //Look if the word already exist in tree if yes print that, else continue and add
             var node = tree.Find(wordFromUser);
 
             if (node != null)
@@ -184,7 +192,7 @@ namespace DatalogiUppgift2
         public static void AddTextFromFilesToLists()
         {
             var directory = TryGetSolutionDirectoryInfo();
-            char[] separators = new char[] { ' ', '.', ',', '"'};
+            char[] separators = new char[] { ' ', '.', ',', '!', '?', '"', '-', ':', ';', '(', ')'};
 
             if (directory != null)
             {

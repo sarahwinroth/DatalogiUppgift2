@@ -21,7 +21,7 @@ namespace DatalogiUppgift2
 
         public void AddNode(string word, List<Result> listOfResults)
         {
-            if (word.Length >= word.Length)
+            if (word.Length >= this.word.Length)
             {   
                 if (rightNode == null)
                 {
@@ -81,22 +81,6 @@ namespace DatalogiUppgift2
 
             if (rightNode != null)
                 rightNode.PreOrderTraversal();
-        }
-
-        public void setRightNode(WordNode newNode)
-        {
-            this.rightNode = newNode;
-        }
-
-
-        public void setLeftNode(WordNode newNode)
-        {
-            this.leftNode = newNode;
-        }
-
-        public static implicit operator WordNode(TreeLogic v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
