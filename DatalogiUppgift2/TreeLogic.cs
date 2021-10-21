@@ -34,11 +34,11 @@ namespace DatalogiUppgift2
             }
         }
 
-        public bool PreorderTraversal()
+        public bool PrintTree()
         {
             if (rootNode != null)
             {
-                rootNode.PreOrderTraversal();
+                rootNode.PrintNode();
                 return true;
             }
             else

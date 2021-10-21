@@ -67,7 +67,7 @@ namespace DatalogiUppgift2
             return null;
         }
 
-        public void PreOrderTraversal()
+        public void PrintNode()
         {
             Console.WriteLine();
             Console.WriteLine(word + " ");
@@ -77,10 +77,10 @@ namespace DatalogiUppgift2
             }
 
             if (leftNode != null)
-                leftNode.PreOrderTraversal();
+                leftNode.PrintNode();
 
             if (rightNode != null)
-                rightNode.PreOrderTraversal();
+                rightNode.PrintNode();
         }
     }
 }
