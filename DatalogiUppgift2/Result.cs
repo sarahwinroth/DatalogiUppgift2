@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DatalogiUppgift2
 {
+    /// <summary>
+    /// Class responsible for the word list object
+    /// </summary>
     public class Result
     {
         public int documentNumber { get; set; }

@@ -31,6 +31,12 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Get the amount of words in each list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="word"></param>
+        /// <returns>number of words as integer</returns>
         public static int GetAmountFromList(List<string> list, string word)
         {
             int totalAmount = 0;
@@ -45,6 +51,9 @@ namespace DatalogiUppgift2
             return totalAmount;
         }
 
+        /// <summary>
+        /// Display all searches done
+        /// </summary>
         public static void PrintTree()
         {
             if (tree.rootNode != null)
@@ -57,6 +66,9 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Main menu
+        /// </summary>
         public static void Menu()
         {
             try
@@ -115,6 +127,10 @@ namespace DatalogiUppgift2
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Prints a list of all commands the user used so far
+        /// </summary>
+        /// <param name="list"></param>
         public static void PrintListOfCommands(List<string> list)
         {
             Console.WriteLine("\nAll commands performed so far:");
@@ -126,6 +142,12 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Prints the result of the search
+        /// </summary>
+        /// <param name="word"></param>
+        /// <param name="list"></param>
+        /// Time complexity O(4+n)
         public static void PrintResult(string word, List<Result> list)
         {
             int i = 1;
@@ -138,6 +160,9 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Selection of how many words to print
+        /// </summary>
         public static void PrintTheFirstWordsFromList()
         {
             Console.WriteLine("\nHow many words from the lists would you like to print out?");
@@ -149,6 +174,9 @@ namespace DatalogiUppgift2
             PrintWordsFromList(3, input, doc3.OrderBy(x => x).ToList());
         }
 
+        /// <summary>
+        /// Prints the first x number of words from each list ordered alphabetically
+        /// </summary>
         public static void PrintWordsFromList(int docNum, int input, List<string> list)
         {
             int i = 0;
@@ -173,6 +201,9 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Search for specific word in all lists and add a node to the tree
+        /// </summary>
         public static void SearchForAWord()
         {
             Console.Clear();
@@ -218,6 +249,11 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Get Directory for reading text files
+        /// </summary>
+        /// <param name="currentPath"></param>
+        /// <returns></returns>
         public static DirectoryInfo TryGetSolutionDirectoryInfo(string currentPath = null)
         {
             var directory = new DirectoryInfo(
@@ -229,10 +265,10 @@ namespace DatalogiUppgift2
             return directory;
         }
 
-        private static void Main(string[] args)
-        {
-            AddTextFromFilesToLists();
-            Menu();
-        }
+        //private static void Main(string[] args)
+        //{
+        //    AddTextFromFilesToLists();
+        //    Menu();
+        //}
     }
 }

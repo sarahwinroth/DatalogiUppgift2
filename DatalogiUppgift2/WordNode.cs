@@ -19,6 +19,11 @@ namespace DatalogiUppgift2
             this.results = results;
         }
 
+        /// <summary>
+        /// Add node to current node
+        /// </summary>
+        /// <param name="word"></param>
+        /// <param name="listOfResults"></param>
         public void AddNode(string word, List<Result> listOfResults)
         {
             if (word.Length >= this.word.Length)
@@ -45,6 +50,11 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Find word node
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns>WordNode</returns>
         public WordNode Find(string word)
         {        
             WordNode currentNode = this;
@@ -67,6 +77,9 @@ namespace DatalogiUppgift2
             return null;
         }
 
+        /// <summary>
+        /// Displays WordNode
+        /// </summary>
         public void PrintNode()
         {
             Console.WriteLine();

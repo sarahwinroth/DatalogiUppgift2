@@ -10,6 +10,11 @@ namespace DatalogiUppgift2
     {
         public WordNode rootNode;
 
+        /// <summary>
+        /// Add node to tree
+        /// </summary>
+        /// <param name="word"></param>
+        /// <param name="listOfResult"></param>
         public void AddNode(string word, List<Result> listOfResult)
         {
             if(rootNode != null)
@@ -22,6 +27,12 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Check if root node is empty before search
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns>WordNode</returns>
+        /// Time complexity O(3)
         public WordNode Find(string word)
         {
             if (rootNode != null)
@@ -34,6 +45,10 @@ namespace DatalogiUppgift2
             }
         }
 
+        /// <summary>
+        /// Check if root node is empty before printing
+        /// </summary>
+        /// <returns></returns>
         public bool PrintTree()
         {
             if (rootNode != null)
