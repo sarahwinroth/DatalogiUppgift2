@@ -14,6 +14,10 @@ namespace DatalogiUppgift2
         public static List<Result> results;
         public static List<Result> sortedList;
         public static TreeLogic tree = new TreeLogic();
+
+        /// <summary>
+        /// Adds the text from each document to separate lists
+        /// </summary>
         public static void AddTextFromFilesToLists()
         {
             var directory = TryGetSolutionDirectoryInfo();
@@ -153,6 +157,7 @@ namespace DatalogiUppgift2
             int i = 1;
 
             Console.WriteLine("\nThe word: " + word);
+            
             foreach (var obj in list)
             {
                 Console.WriteLine(i + ". " + obj.ToString());
@@ -265,10 +270,10 @@ namespace DatalogiUppgift2
             return directory;
         }
 
-        //private static void Main(string[] args)
-        //{
-        //    AddTextFromFilesToLists();
-        //    Menu();
-        //}
+        private static void Main(string[] args)
+        {
+            AddTextFromFilesToLists();
+            Menu();
+        }
     }
 }

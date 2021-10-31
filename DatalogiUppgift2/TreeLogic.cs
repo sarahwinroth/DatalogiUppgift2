@@ -57,7 +57,7 @@ namespace DatalogiUppgift2
                 return true;
             }
             else
-            { return false;  }
+            {   return false;  }
         }
     }
 }

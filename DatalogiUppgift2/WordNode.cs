@@ -84,6 +84,7 @@ namespace DatalogiUppgift2
         {
             Console.WriteLine();
             Console.WriteLine(word + " ");
+
             foreach (var result in results)
             {
                 Console.WriteLine(result.ToString());
