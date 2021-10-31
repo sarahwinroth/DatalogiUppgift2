@@ -85,7 +85,8 @@ namespace DatalogiUppgift2
                     Console.WriteLine("1. Search for a word in the lists");
                     Console.WriteLine("2. Print all the search results");
                     Console.WriteLine("3. Print the first number of words from the lists when sorted");
-                    Console.WriteLine("4. Print all commandos made by user");
+                    Console.WriteLine("4. Print all commands made by user");
+                    Console.WriteLine("5. Exit");
                     Console.Write("> ");
                     int input = Convert.ToInt32(Console.ReadLine());
 
@@ -113,6 +114,10 @@ namespace DatalogiUppgift2
                             listOfCommands.Add("Printed all commandos made by user");
                             PrintListOfCommands(listOfCommands);
                             PressEnterToMenu();
+                            break;
+
+                        case 5:
+                            run = false;
                             break;
                     }
                 }
